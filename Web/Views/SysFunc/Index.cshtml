@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Web.Models.SysFunc>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section HeaderSection{
+    <script type="text/javascript">
+        $(function () {
+            jQuery("#jqGrid").jqGrid({
+                data: "/SysFunc.mvc/Find",
+                datatype: "local",
+                height: 250,
+                rowNum: 10,
+                rowList: [10,20,30],
+                colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+                colModel:[
+                    {name:'id',index:'id', width:60, sorttype:"int",search:true},
+                    {name:'invdate',index:'invdate', width:90, sorttype:"date", formatter:"date"},
+                    {name:'name',index:'name', width:100},
+                    {name:'amount',index:'amount', width:80, align:"right",sorttype:"float", formatter:"number"},
+                    {name:'tax',index:'tax', width:80, align:"right",sorttype:"float"},
+                    {name:'total',index:'total', width:80,align:"right",sorttype:"float"},
+                    {name:'note',index:'note', width:150, sortable:false}
+                ],
+                pager: "#jqGridPager",
+                viewrecords: true,
+                caption: "Sample jqGrid Table",
+                hidegrid:false,
+                altRows: true
+            });
+            jQuery("#jqGrid")
+                .jqGrid('filterToolbar',{defaultSearch:true,stringResult:true})
+                .jqGrid('setSelection', '3');
+        });
+    </script>
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table id="jqGrid"></table>
+<div id="jqGridPager"></div>

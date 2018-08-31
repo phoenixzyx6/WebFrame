@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Web.Models.Users>
+
+@{
+    ViewBag.FatherName = "系统管理";
+    ViewBag.Title = "用户管理";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommAddr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BloodType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsUsed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remark)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommAddr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BloodType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUsed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remark)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserName })
+        </td>
+    </tr>
+}
+
+</table>
